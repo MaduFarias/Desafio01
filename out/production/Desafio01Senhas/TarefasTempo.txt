@@ -1,0 +1,11 @@
+Requisitos
+
+1.Input: tempo disponivel do usuário
+2.Converter o valor para minutos
+3.Sugerir atividades baseadas nesse tempo
+
+5 min - beber água, alongar, ouvir música
+10 min - ler um capitulo, revisar anotações, meditar
+20 min - videoaula, caminhada curta
+45 min - estudar um módulo, escrever texto, resolver exercícios
++90 min - projeto pessoal, estudo aprofundado, tarefa doméstica

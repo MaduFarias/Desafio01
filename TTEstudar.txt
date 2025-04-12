@@ -1,0 +1,55 @@
+##Método usando array
+
+import java.util.Scanner;
+
+public class TarefasTempo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Entrada de tempo
+        System.out.println("Digite as horas: ");
+        int hora = scanner.nextInt();
+
+        System.out.println("Digite os minutos: ");
+        int minuto = scanner.nextInt();
+
+        int tempoDisponivel = hora * 60 + minuto;
+
+        System.out.println("\nTempo disponível: " + hora + "h " + minuto + "min (" + tempoDisponivel + " minutos).");
+        System.out.println("Aqui estão as atividades recomendadas:\n");
+
+        // Lista de atividades: cada linha = {tempo em minutos, descrição}
+        int[] tempos = {90, 45, 20, 10, 5};
+        String[] atividades = {
+            "Projeto pessoal",
+            "Resolver exercícios",
+            "Videoaula",
+            "Revisar anotações",
+            "Ouvir música"
+        };
+
+        while (tempoDisponivel >= 5) {
+            boolean atividadeAdicionada = false;
+
+            for (int i = 0; i < tempos.length; i++) {
+                if (tempoDisponivel >= tempos[i]) {
+                    System.out.println(atividades[i] + " (" + tempos[i] + " min)");
+                    tempoDisponivel -= tempos[i];
+                    System.out.println("→ Tempo restante: " + tempoDisponivel + " min\n");
+                    atividadeAdicionada = true;
+                    break;
+                }
+            }
+
+            if (!atividadeAdicionada) {
+                break; // evita loop infinito se nada couber
+            }
+        }
+
+        if (tempoDisponivel < 5 && tempoDisponivel > 0) {
+            System.out.println("Pouco tempo restante (" + tempoDisponivel + " min). Que tal um descanso rápido?");
+        }
+
+        System.out.println("\nTodas as sugestões foram exibidas com base no tempo disponível!");
+    }
+}
